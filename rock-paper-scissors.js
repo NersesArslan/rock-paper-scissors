@@ -7,3 +7,7 @@ function getComputerChoice(rps)
     }
 const rps = ["Rock", "Paper", "Scissors"];
 console.log(getComputerChoice(rps));
+
+function playRound(playerSelection, computerSelection) {
+    
+}
