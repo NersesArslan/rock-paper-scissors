@@ -8,21 +8,35 @@ function getComputerChoice()
     return rps[Math.floor(Math.random()*rps.length)];
     }
 
-let computerSelection = getComputerChoice();
-let playerSelection = userInput;
-
-const playRound = (playerSelection, computerSelection) => {
-    playerSelection = playerSelection.toLowerCase();
-    computerSelection = computerSelection.toLowerCase();
-    if (playerSelection ==="Rock"){
+function playRound(playerSelection, computerSelection){
+    if(playerSelection === computerSelection){
+        return "Draw";
+    } 
+    else if (playerSelection ==="Rock"){
         if(computerSelection === "Paper"){
-            return "You lose! Paper covers Rock!"
+            return "You lose! Paper covers Rock."
         }
-        else if(computerSelection === "Scissors"){
+        else if (computerSelection === "Scissors"){
             return "You win! Rock beats Scissors!";
-        } else {
-            return "Draw.";
+        } 
+    }
+    else if(playerSelection === "Paper"){
+        if(computerSelection === "Scissors"){
+            return "You lose! Scissors cuts Paper.";
+        } 
+        else if(computerSelection === "Rock"){
+            return "You win! Paper covers Rock.";
         }
     }
+    else if(playerSelection === "Scissors"){
+        if(computerSelection === "Rock"){
+            return "You lose! Rock beats Scissors.";
+        }
+    else if(computerSelection ==="Paper"){
+        return "You win! Scissors cuts Paper.";
+    }
+    }
 };
+
+console.log(playRound(userInput, getComputerChoice()));
    
