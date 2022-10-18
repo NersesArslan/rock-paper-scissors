@@ -1,6 +1,6 @@
 /* function that returns Rock, Paper or Scissors */
 
-let userInput = prompt("Rock, Paper or Scissors?");
+game();
 
 function getComputerChoice() 
     {
@@ -8,8 +8,6 @@ function getComputerChoice()
     return rps[Math.floor(Math.random()*rps.length)];
     }
 
-const playerSelection = userInput;
-const computerSelection = getComputerChoice();
 
 function playRound(playerSelection, computerSelection){
 
@@ -17,34 +15,56 @@ function playRound(playerSelection, computerSelection){
     computerSelection = computerSelection.toLowerCase();
 
     if(playerSelection === computerSelection){
-        return "Draw";
+        return 0;
     } 
     else if (playerSelection === "rock"){
         if(computerSelection === "paper"){
-            return "You lose! Paper covers Rock."
+            return -1;
         }
         else if (computerSelection === "scissors"){
-            return "You win! Rock beats Scissors!";
+            return 1;
         } 
     }
     else if(playerSelection === "paper"){
         if(computerSelection === "scissors"){
-            return "You lose! Scissors cuts Paper.";
+            return -1;
         } 
         else if(computerSelection === "rock"){
-            return "You win! Paper covers Rock.";
+            return 1;
         }
     }
     else if(playerSelection === "scissors"){
         if(computerSelection === "rock"){
-            return "You lose! Rock beats Scissors.";
+            return -1;
         }
     else if(computerSelection ==="paper"){
-        return "You win! Scissors cuts Paper.";
+        return 1;
     }
     }
 };
 
 
-console.log(playRound(playerSelection, computerSelection));
-   
+
+function game(){
+    let score = 0;
+    
+
+
+    for(let i = 0; i <= 4; i++){      
+        let userInput = prompt("Rock, Paper or Scissors?"); 
+        const playerSelection = userInput;
+        const computerSelection = getComputerChoice();    
+        score += playRound(playerSelection, computerSelection);
+        
+    } 
+    if(score > 0){
+        console.log("You win!")
+    } 
+    else if(score < 0){
+        console.log("You lose!");
+    } 
+    else if(score === 0){
+        console.log("Draw");
+    }
+
+}
