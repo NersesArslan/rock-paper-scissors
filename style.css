@@ -2,11 +2,23 @@ body {
     background-color: #fff;
 }
 
-.container {
+.buttons {
     display: flex;
     justify-content: center;
     align-items: center;   
-    gap: 10px;
+    gap: 15px;
     padding: 50px;
     
+}
+
+button {
+height: 30vh;
+width: 60vw;
+font-size: 30px;
+font-weight: 600;
+}
+
+button:hover{
+    background-color: pink;
+    transition: 0.7s;
 }

@@ -53,6 +53,7 @@ const Scissors = document.querySelector('.Scissors');
 Rock.addEventListener('click', () => {
      playerSelection = "rock";
      alert(playRound(playerSelection, computerSelection));
+     console.log(playRound(playerSelection, computerSelection));
      console.log(playerSelection);
      console.log(computerSelection);
 })
@@ -60,6 +61,7 @@ Rock.addEventListener('click', () => {
 Paper.addEventListener('click', () => {
     playerSelection = "paper";
     alert(playRound(playerSelection, computerSelection));
+    console.log(playRound(playerSelection, computerSelection));
     console.log(playerSelection);
     console.log(computerSelection);
 
@@ -68,6 +70,7 @@ Paper.addEventListener('click', () => {
 Scissors.addEventListener('click', () => {
     playerSelection = "scissors";
     alert(playRound(playerSelection, computerSelection));
+    console.log(playRound(playerSelection, computerSelection));
     console.log(playerSelection);
     console.log(computerSelection);
 })
