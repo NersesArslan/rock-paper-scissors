@@ -1,14 +1,9 @@
-
-
-
 function getComputerChoice() 
-    {
+    {   
         const rps = ["Rock", "Paper", "Scissors"];
-    return rps[Math.floor(Math.random()*rps.length)];
+        return rps[Math.floor(Math.random()*rps.length)];
     }
-
-    
-    
+  
 function playRound(playerSelection, computerSelection){
 
     playerSelection = playerSelection.toLowerCase();
@@ -54,15 +49,15 @@ const results = document.querySelector('.results');
 const result = document.createElement('div');
 result.classList.add('result');
 
+const score = document.createElement('p');
+
+const user = document.querySelector('.userscore');
+
 Rock.addEventListener('click', () => {
     playerSelection = "rock";
     computerSelection = getComputerChoice(); 
     result.textContent = playRound(playerSelection, computerSelection);
     results.appendChild(result);
-
-    console.log(playerSelection);
-    console.log(computerSelection);
-    
 })
 
 Paper.addEventListener('click', () => {
@@ -70,10 +65,6 @@ Paper.addEventListener('click', () => {
     computerSelection = getComputerChoice(); 
     result.textContent = playRound(playerSelection, computerSelection);
     results.appendChild(result);
-
-    console.log(playerSelection);
-    console.log(computerSelection);
-
 })
 
 Scissors.addEventListener('click', () => {
@@ -81,10 +72,6 @@ Scissors.addEventListener('click', () => {
     computerSelection = getComputerChoice(); 
     result.textContent = playRound(playerSelection, computerSelection);
     results.appendChild(result);
-
-    console.log(playerSelection);
-    console.log(computerSelection);
-    
 })
 
 

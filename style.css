@@ -1,34 +1,40 @@
-body {
-    background-color: #fff;
-}
+
 .container {
     display: flex;
     flex-direction: column;
-}
-.buttons {
-    display: flex;
-    justify-content: center;
-    align-items: center;   
-    gap: 15px;
-    padding: 50px;
-    
-}
-
-button {
-height: 10vh;
-width: 30vw;
-font-size: 30px;
-font-weight: 600;
-}
-
-button:hover{
-    background-color: pink;
-    transition: 0.7s;
+    margin: 200px;
+    padding: 40px 100px;
+    gap: 50px; 
 }
 
 .results {
+display: flex;
+flex-direction: column;
+gap: 50px;
+
+}
+.scoreboard {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    
+    justify-content: space-between;
+    padding: 0 25px;
+}
+
+.result {
+    display: flex;
+    justify-content: center;
+
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-around;
+}
+
+button {
+
+height: 50px;
+width: 100px;
+border-radius: 8px;
+border: none;
+background-color: lightblue;
 }
