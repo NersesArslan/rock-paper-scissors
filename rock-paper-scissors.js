@@ -1,8 +1,23 @@
-function getComputerChoice() 
-    {   
+function getComputerChoice() {   
         const rps = ["Rock", "Paper", "Scissors"];
         return rps[Math.floor(Math.random()*rps.length)];
     }
+
+function getPlayerChoice() {
+
+    Rock.addEventListener('click', () => {
+        return playerSelection = "rock";
+    });
+    
+    Paper.addEventListener('click', () => {
+        return playerSelection = "paper";
+    })
+    
+    Scissors.addEventListener('click', () => {
+       return playerSelection = "scissors";
+    })
+}
+
   
 function playRound(playerSelection, computerSelection){
 
@@ -10,36 +25,34 @@ function playRound(playerSelection, computerSelection){
     computerSelection = computerSelection.toLowerCase();
 
     if(playerSelection === computerSelection){
-        return "Draw";
+        return 0;
     } 
     else if (playerSelection === "rock"){
         if(computerSelection === "paper"){
-            return "You lose!";
+            return -1;
             
         }
         else if (computerSelection === "scissors"){
-            return "You win!";
+            return 1;
         } 
     }
     else if(playerSelection === "paper"){
         if(computerSelection === "scissors"){
-            return "You lose!";
+            return -1;
         } 
         else if(computerSelection === "rock"){
-            return "You win!";
+            return 1;
         }
     }
     else if(playerSelection === "scissors"){
         if(computerSelection === "rock"){
-            return "You lose!";
+            return -1;
         }
     else if(computerSelection === "paper"){
-        return "You win!";
+        return 1;
     }
     }
 };
-
-
 
 const Rock = document.querySelector('.Rock');
 const Paper = document.querySelector('.Paper');
@@ -49,16 +62,17 @@ const results = document.querySelector('.results');
 const result = document.createElement('div');
 result.classList.add('result');
 
-const score = document.createElement('p');
+const userScore = document.querySelector('.userscore');
+const computerScore = document.querySelector('.computerscore');
 
-const user = document.querySelector('.userscore');
+
 
 Rock.addEventListener('click', () => {
     playerSelection = "rock";
     computerSelection = getComputerChoice(); 
     result.textContent = playRound(playerSelection, computerSelection);
     results.appendChild(result);
-})
+});
 
 Paper.addEventListener('click', () => {
     playerSelection = "paper";
@@ -73,9 +87,3 @@ Scissors.addEventListener('click', () => {
     result.textContent = playRound(playerSelection, computerSelection);
     results.appendChild(result);
 })
-
-
-
-
-
-
