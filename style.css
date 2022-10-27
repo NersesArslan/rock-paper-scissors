@@ -1,7 +1,10 @@
 body {
     background-color: #fff;
 }
-
+.container {
+    display: flex;
+    flex-direction: column;
+}
 .buttons {
     display: flex;
     justify-content: center;
@@ -12,8 +15,8 @@ body {
 }
 
 button {
-height: 30vh;
-width: 60vw;
+height: 10vh;
+width: 30vw;
 font-size: 30px;
 font-weight: 600;
 }
@@ -21,4 +24,11 @@ font-weight: 600;
 button:hover{
     background-color: pink;
     transition: 0.7s;
+}
+
+.results {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
 }
