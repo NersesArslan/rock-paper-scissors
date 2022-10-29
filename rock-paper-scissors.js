@@ -57,25 +57,36 @@ let roundScore = 0;
     function dry() {
         computerSelection = getComputerChoice(); 
         roundScore = playRound(playerSelection, computerSelection);
-        
-        let round_result = "";
     
         if(roundScore === -1){
-            scorePC += 1;
-            round_result =  "You lose";
+            scorePC += 1;        
+            result.textContent = "You Lose!";
+
         } else if(roundScore === 1){
-            scoreUser += 1;
-            round_result = "You win";
-        } else {
-            round_result = "Draw";
+            scoreUser += 1;           
+            result.textContent = "You Win!";
+
+        } else {       
+            result.textContent = "Draw"
         }
     
         console.log(roundScore);
         console.log("Pc Score: " + scorePC);
         console.log("User Score: " + scoreUser);
         console.log("---");
-    
-        return round_result;
+        results.appendChild(result);
+        userScore.innerHTML = scoreUser;
+        computerScore.innerHTML = scorePC;
+
+
+        if(scoreUser === 5){
+            alert("You Win!");
+            return scoreUser = scorePC = 0;
+        } else if(scorePC === 5){
+            alert("Computer Wins!");
+            return scoreUser = scorePC = 0;
+        }
+        
     }
 
 
@@ -102,6 +113,4 @@ function game() {
         
 }
     
-
-
 game();
