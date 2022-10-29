@@ -3,22 +3,6 @@ function getComputerChoice() {
         return rps[Math.floor(Math.random()*rps.length)];
     }
 
-function getPlayerChoice() {
-
-    Rock.addEventListener('click', () => {
-        return playerSelection = "rock";
-    });
-    
-    Paper.addEventListener('click', () => {
-        return playerSelection = "paper";
-    })
-    
-    Scissors.addEventListener('click', () => {
-       return playerSelection = "scissors";
-    })
-}
-
-  
 function playRound(playerSelection, computerSelection){
 
     playerSelection = playerSelection.toLowerCase();
@@ -65,25 +49,59 @@ result.classList.add('result');
 const userScore = document.querySelector('.userscore');
 const computerScore = document.querySelector('.computerscore');
 
+let roundScore = 0;
+    let scorePC = 0;
+    let scoreUser = 0;
+    
+
+    function dry() {
+        computerSelection = getComputerChoice(); 
+        roundScore = playRound(playerSelection, computerSelection);
+        
+        let round_result = "";
+    
+        if(roundScore === -1){
+            scorePC += 1;
+            round_result =  "You lose";
+        } else if(roundScore === 1){
+            scoreUser += 1;
+            round_result = "You win";
+        } else {
+            round_result = "Draw";
+        }
+    
+        console.log(roundScore);
+        console.log("Pc Score: " + scorePC);
+        console.log("User Score: " + scoreUser);
+        console.log("---");
+    
+        return round_result;
+    }
 
 
-Rock.addEventListener('click', () => {
-    playerSelection = "rock";
-    computerSelection = getComputerChoice(); 
-    result.textContent = playRound(playerSelection, computerSelection);
-    results.appendChild(result);
-});
+function game() {
 
-Paper.addEventListener('click', () => {
-    playerSelection = "paper";
-    computerSelection = getComputerChoice(); 
-    result.textContent = playRound(playerSelection, computerSelection);
-    results.appendChild(result);
-})
+    
 
-Scissors.addEventListener('click', () => {
-    playerSelection = "scissors";
-    computerSelection = getComputerChoice(); 
-    result.textContent = playRound(playerSelection, computerSelection);
-    results.appendChild(result);
-})
+    Rock.addEventListener('click', () => {
+        playerSelection = "rock";
+        dry();
+    
+    });
+
+     Paper.addEventListener('click', () => {
+        playerSelection = "paper";
+        dry();
+            
+    })
+
+        Scissors.addEventListener('click', () => {
+            playerSelection = "scissors";
+            dry();
+    })
+        
+}
+    
+
+
+game();
